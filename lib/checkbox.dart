@@ -1,30 +1,33 @@
 import 'package:flutter/material.dart';
 
-class Checkbox extends StatefulWidget {
+class CheckboxExample extends StatefulWidget {
   @override
-  
-    State<Checkbox> createState()=>_CheckboxState();
-  }
-class _CheckboxState extends State<Checkbox>{
- bool isChecked=false;
+  State<CheckboxExample> createState() => _CheckboxExampleState();
+}
+
+class _CheckboxExampleState extends State<CheckboxExample> {
+  bool isCheck = false;
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Checkbox example"),),
+      appBar: AppBar(
+        title: Text("Checkbox example"),
+      ),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Checkbox(
-              value:isChecked,
-              onChanged:(bool? value){
-                setState(() {
-                  isChecked=value?? false;
-                });
-              },
+                value: isCheck,
+                onChanged: (bool? value) {
+                  setState(() {
+                    isCheck = value ?? false;
+                  });
+                }),
+            Text(
+              isCheck ? 'checked' : 'uncheked',
+              style: TextStyle(fontSize: 20),
             ),
-            Text(isChecked ? 'Checked' : 'Unchecked',
-            style: TextStyle(fontSize: 18),)
           ],
         ),
       ),
